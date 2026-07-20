@@ -173,27 +173,39 @@ div[data-testid="stElementContainer"]:has(iframe[height="0"]) {
   padding: 0 !important;
 }
 
-/* Navbar container shell - MUST be display:block & high z-index so fixed nav is never hidden */
+/* Navbar container shell - position absolute so it is taken out of flex flow entirely and leaves 0 gap */
 div[data-testid="stElementContainer"]:has(#ds-nav) {
-  display: block !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 0 !important;
   height: 0 !important;
   min-height: 0 !important;
   margin: 0 !important;
   padding: 0 !important;
   overflow: visible !important;
-  position: relative !important;
   z-index: 9999999 !important;
+  pointer-events: none !important;
+}
+
+#ds-nav {
+  pointer-events: auto !important;
 }
 
 .main .block-container,
 [data-testid="stMainBlockContainer"] {
-  padding-top: var(--nav-h) !important;
+  padding-top: 60px !important;
   padding-bottom: 0 !important;
   max-width: 100% !important;
 }
 
 [data-testid="stMainBlockContainer"] > [data-testid="stVerticalBlock"] {
   gap: 14px !important;
+}
+
+[data-testid="stMainBlockContainer"] > [data-testid="stVerticalBlock"] > div[data-testid="stElementContainer"]:first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 }
 
 /* ── Plotly Charts & Maps ────────────────────────────────────────────────── */
