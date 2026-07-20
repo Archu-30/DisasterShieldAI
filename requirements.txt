@@ -9,3 +9,7 @@ streamlit-js-eval
 SpeechRecognition
 gTTS
 Pillow
+plotly
+pywebpush
+py-vapid
+cryptography
