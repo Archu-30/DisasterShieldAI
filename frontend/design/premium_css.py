@@ -692,7 +692,7 @@ def top_navbar(active="dashboard", city_name="", temp=""):
 <div id="profile-menu">
   <div class="pm-head">
     <div class="pm-name">DisasterShield User</div>
-    <div class="pm-email">suryarmtech@gmail.com</div>
+    <div class="pm-email">abc@gmail.com</div>
   </div>
   <div class="pm-body">
     <div class="pm-item" data-action="my-profile"><span class="pm-item-ico">👤</span> My Profile</div>

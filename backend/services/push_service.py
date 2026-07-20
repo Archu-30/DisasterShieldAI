@@ -22,7 +22,7 @@ KEY_FILE = DATA_DIR / "vapid_private.pem"
 SUB_FILE = DATA_DIR / "subscriptions.json"
 SENT_FILE = DATA_DIR / "sent_state.json"
 
-VAPID_CLAIMS = {"sub": "mailto:suryarmtech@gmail.com"}
+VAPID_CLAIMS = {"sub": "mailto:abc@gmail.com"}
 CHECK_INTERVAL_S = 300          # risk re-check cadence
 RESEND_COOLDOWN_S = 6 * 3600    # don't repeat the same alert for 6 h
 
