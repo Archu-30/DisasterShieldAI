@@ -405,7 +405,7 @@ with map_col:
     ))
     fig_map.update_layout(
         mapbox=dict(
-            style="carto-darkmatter",
+            style="open-street-map",
             center=dict(lat=lat, lon=lon),
             zoom=9
         ),
