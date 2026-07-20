@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+*.pyo
+
+# Environment
+.env
+.venv/
+venv/
+env/
+
+# Secrets & keys
+database/push/vapid_private.pem
+database/push/subscriptions.json
+database/push/sent_state.json
+
+# IDE / OS
+.claude/
+.vscode/
+.idea/
+*.DS_Store
+Thumbs.db
+
+# Streamlit
+.streamlit/secrets.toml

@@ -1,0 +1,12 @@
+[client]
+showSidebarNavigation = false
+
+[server]
+enableStaticServing = true
+
+[theme]
+base = "dark"
+backgroundColor = "#050505"
+secondaryBackgroundColor = "#111316"
+primaryColor = "#FFD700"
+textColor = "#F2F2F2"

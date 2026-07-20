@@ -1,0 +1,11 @@
+langchain
+langgraph
+langchain-groq
+python-dotenv
+streamlit
+pandas
+requests
+streamlit-js-eval
+SpeechRecognition
+gTTS
+Pillow
