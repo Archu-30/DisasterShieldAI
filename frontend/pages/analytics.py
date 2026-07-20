@@ -43,7 +43,7 @@ risk_score = preds[0]["risk_score"] if preds else 0
 
 # ── KPI Row ──────────────────────────────────────────────────────────────────
 c1, c2, c3, c4 = st.columns(4)
-kpi_card = "background:rgba(18,20,26,.85);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:16px 18px;"
+kpi_card = "background:rgba(18,20,26,.85);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:16px 18px;margin-bottom:24px;"
 
 c1.markdown(f"""
 <div style="{kpi_card}">

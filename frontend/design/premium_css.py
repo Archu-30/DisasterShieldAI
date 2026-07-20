@@ -173,7 +173,7 @@ div[data-testid="stElementContainer"]:has(> div > [data-testid="stMarkdownContai
    each reserve a flex-gap slot in the top-level vertical block — remove it.
    Nested blocks (columns etc.) keep the default gap. */
 [data-testid="stMainBlockContainer"] > [data-testid="stVerticalBlock"] {
-  gap: 0 !important;
+  gap: 1rem !important;
 }
 
 /* ── Custom Metric & Resource Card hover styles ── */
