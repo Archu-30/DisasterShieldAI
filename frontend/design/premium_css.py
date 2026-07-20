@@ -175,18 +175,42 @@ div[data-testid="stElementContainer"]:has(> div > [data-testid="stMarkdownContai
   padding: 0 !important;
 }
 
+/* Navbar wrapper: absolute position with 0 height so it takes ZERO document flow space */
 div[data-testid="stElementContainer"]:has(#ds-nav) {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
   height: 0 !important;
   min-height: 0 !important;
+  max-height: 0 !important;
   margin: 0 !important;
   padding: 0 !important;
   overflow: visible !important;
+  border: none !important;
+  pointer-events: none !important;
+}
+
+div[data-testid="stElementContainer"]:has(#ds-nav) * {
+  pointer-events: auto !important;
+}
+
+div[data-testid="stElementContainer"]:has(#ds-nav) [data-testid="stMarkdownContainer"],
+div[data-testid="stElementContainer"]:has(#ds-nav) [data-testid="stMarkdownContainer"] > p,
+div[data-testid="stElementContainer"]:has(#ds-nav) [data-testid="stMarkdownContainer"] > div {
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 0 !important;
+  min-height: 0 !important;
 }
 
 .main .block-container,
 [data-testid="stMainBlockContainer"] {
   padding-top: var(--nav-h) !important;
   padding-bottom: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-top: 0 !important;
   max-width: 100% !important;
 }
 
