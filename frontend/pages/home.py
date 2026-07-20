@@ -1,4 +1,4 @@
-﻿"""DisasterShield AI — Dashboard (Home)"""
+"""DisasterShield AI — Dashboard (Home)"""
 import json, time
 import streamlit as st
 import streamlit.components.v1 as components
@@ -352,22 +352,37 @@ st.markdown("""
 metric_widgets(weather)
 
 # ── Live Map + Feed ───────────────────────────────────────────────────────────
-st.markdown(f'<div style="padding:28px 24px 8px;display:flex;align-items:center;justify-content:space-between"><div><div style="font-size:15px;font-weight:700;color:var(--white);margin-bottom:3px">Live Threat Map</div><div style="font-size:12px;color:var(--gray)">Real-time disaster visualization · Plotly interactive map</div></div><a href="risk" data-navigate="risk" style="font-size:11px;color:var(--gold);font-weight:600;text-decoration:none">Full Risk Monitor →</a></div>', unsafe_allow_html=True)
+st.markdown('<div style="height:8px"></div>', unsafe_allow_html=True)
 
 map_col, feed_col = st.columns([3, 2])
 
 with map_col:
+    st.markdown('''<div style="background:rgba(11,13,16,.98);border:1px solid rgba(255,255,255,.06);
+      border-bottom:none;border-radius:12px 12px 0 0;padding:12px 16px;
+      display:flex;align-items:center;justify-content:space-between">
+      <div>
+        <div style="font-size:13.5px;font-weight:700;color:#F5F5F5;display:flex;align-items:center;gap:6px">
+          <span>🗺️</span> <span>Live Threat Map</span>
+        </div>
+        <div style="font-size:11px;color:#8B949E;margin-top:2px">Real-time disaster visualization · Plotly interactive map</div>
+      </div>
+      <a href="risk" data-navigate="risk" style="font-size:11px;color:#FFD54A;font-weight:600;text-decoration:none">Full Risk Monitor →</a>
+    </div>''', unsafe_allow_html=True)
+
     fig_map = go.Figure()
     # Risk zones as scatter circles
     zone_data = [
-        (lat+0.1, lon-0.1, "🌊 Flood Risk Zone", "#3B82F6", 18),
-        (lat-0.15, lon+0.2, "🌊 Flood Watch", "#3B82F6", 12),
-        (lat+0.4, lon+1.2, "🌀 Cyclone Warning", "#8B5CF6", 35),
-        (lat+0.05, lon+0.0, "🌡 Heat Island", "#FFB300", 25),
+        (lat+0.08, lon-0.08, "🌊 Flood Risk Zone", "#3B82F6", 22),
+        (lat-0.12, lon+0.15, "🌊 Flood Watch", "#60A5FA", 16),
+        (lat+0.35, lon+1.1, "🌀 Cyclone Warning", "#A855F7", 38),
+        (lat+0.04, lon+0.01, "🌡 Heat Island", "#FFB300", 26),
     ]
     for zlat, zlon, name, col, size in zone_data:
-        fig_map.add_trace(go.Scattermapbox(lat=[zlat], lon=[zlon], mode="markers",
-            marker=dict(size=size, color=col, opacity=0.35), name=name, hovertext=name, hoverinfo="text"))
+        fig_map.add_trace(go.Scattermapbox(
+            lat=[zlat], lon=[zlon], mode="markers",
+            marker=dict(size=size, color=col, opacity=0.45),
+            name=name, hovertext=name, hoverinfo="text"
+        ))
     # POI markers
     poi = [
         (lat+0.05, lon+0.08, "🏠 Emergency Shelter", "#00C853", 14),
@@ -376,18 +391,39 @@ with map_col:
         (lat-0.04, lon+0.07, "🏥 Apollo Hospital", "#3B82F6", 14),
     ]
     for plat, plon, name, col, size in poi:
-        fig_map.add_trace(go.Scattermapbox(lat=[plat], lon=[plon], mode="markers",
-            marker=dict(size=size, color=col, opacity=0.9), name=name, hovertext=name, hoverinfo="text"))
+        fig_map.add_trace(go.Scattermapbox(
+            lat=[plat], lon=[plon], mode="markers",
+            marker=dict(size=size, color=col, opacity=0.9),
+            name=name, hovertext=name, hoverinfo="text"
+        ))
     # User location
-    fig_map.add_trace(go.Scattermapbox(lat=[lat], lon=[lon], mode="markers+text",
-        marker=dict(size=16, color="#FFD54A"), text=["📍"], textposition="top center",
-        name=f"📍 {city}", hovertext=f"📍 {city}", hoverinfo="text"))
+    fig_map.add_trace(go.Scattermapbox(
+        lat=[lat], lon=[lon], mode="markers+text",
+        marker=dict(size=18, color="#FFD54A"),
+        text=[f"📍 {city}"], textposition="top center",
+        name=f"📍 {city}", hovertext=f"📍 {city} (Your Location)", hoverinfo="text"
+    ))
     fig_map.update_layout(
-        mapbox=dict(style="open-street-map", center=dict(lat=lat, lon=lon), zoom=8),
-        paper_bgcolor="rgba(13,13,13,1)", plot_bgcolor="rgba(0,0,0,0)",
-        margin=dict(l=0, r=0, t=0, b=0), height=420,
-        legend=dict(bgcolor="rgba(11,13,16,.9)", font=dict(color="#8B949E", size=10),
-                    bordercolor="rgba(255,255,255,.06)", borderwidth=1, x=0, y=0),
+        mapbox=dict(
+            style="carto-darkmatter",
+            center=dict(lat=lat, lon=lon),
+            zoom=9
+        ),
+        paper_bgcolor="rgba(11,13,16,.98)",
+        plot_bgcolor="rgba(11,13,16,.98)",
+        margin=dict(l=0, r=0, t=0, b=0),
+        height=370,
+        legend=dict(
+            bgcolor="rgba(11,13,16,.88)",
+            font=dict(color="#F5F5F5", size=10.5, family="Inter, system-ui, sans-serif"),
+            bordercolor="rgba(255,255,255,.12)",
+            borderwidth=1,
+            x=0.015,
+            y=0.98,
+            xanchor="left",
+            yanchor="top",
+            itemsizing="constant"
+        ),
         font=dict(family="Inter, system-ui, sans-serif", color="#8B949E"),
     )
     st.plotly_chart(fig_map, use_container_width=True, config={"displayModeBar": False})

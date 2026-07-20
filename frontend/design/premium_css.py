@@ -180,7 +180,19 @@ div[data-testid="stElementContainer"]:has(#ds-nav) {
 }
 
 [data-testid="stMainBlockContainer"] > [data-testid="stVerticalBlock"] {
-  gap: 0 !important;
+  gap: 14px !important;
+}
+
+/* ── Plotly Charts & Maps ────────────────────────────────────────────────── */
+div[data-testid="stPlotlyChart"] {
+  border: 1px solid rgba(255,255,255,.06) !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  background: rgba(11,13,16,.98) !important;
+  box-shadow: var(--shadow) !important;
+}
+div[data-testid="stPlotlyChart"] iframe {
+  border-radius: 12px !important;
 }
 
 /* ── Custom Metric & Resource Card hover styles ── */
