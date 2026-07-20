@@ -312,16 +312,17 @@ def top_navbar(active="dashboard", city_name="", temp=""):
   background: linear-gradient(90deg, var(--gold), transparent);
 }}
 .nav-emergency {{
-  color: #FF4D4F !important; background: rgba(255,77,79,.08) !important;
-  border: 1px solid rgba(255,77,79,.18) !important;
-  border-radius: 8px !important; font-weight: 600 !important;
+  color: #FF4D4F !important;
+  font-weight: 600 !important;
 }}
 .nav-emergency:hover {{
-  background: rgba(255,77,79,.14) !important;
+  background: rgba(255,77,79,.1) !important;
   color: #FF4D4F !important;
 }}
 .nav-emergency.active {{
   color: #FF4D4F !important;
+  background: rgba(255,77,79,.14) !important;
+  border: 1px solid rgba(255,77,79,.3) !important;
 }}
 .nav-emergency.active::after {{ background: #FF4D4F !important; }}
 
