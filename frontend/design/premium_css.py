@@ -163,11 +163,9 @@ a, a:hover, a:visited, a:active, [data-testid="stMarkdownContainer"] a {
 /* ── Page top padding (below fixed nav) ──────────────────────────────────── */
 .page-body { padding-top: calc(var(--nav-h) + 4px); }
 
-/* ── Collapse invisible layout elements (hidden page links, style tags, nav wrappers)
-     so they generate ZERO flex gaps under the fixed navbar ── */
+/* ── Collapse invisible layout elements (hidden page links, 0-height JS iframes) ── */
 div[data-testid="stElementContainer"]:has([data-testid="stPageLink"]),
-div[data-testid="stElementContainer"]:has(iframe[height="0"]),
-div[data-testid="stElementContainer"]:has(> div > [data-testid="stMarkdownContainer"] > style) {
+div[data-testid="stElementContainer"]:has(iframe[height="0"]) {
   display: none !important;
   height: 0 !important;
   min-height: 0 !important;
@@ -175,42 +173,22 @@ div[data-testid="stElementContainer"]:has(> div > [data-testid="stMarkdownContai
   padding: 0 !important;
 }
 
-/* Navbar wrapper: absolute position with 0 height so it takes ZERO document flow space */
+/* Navbar container shell - MUST be display:block & high z-index so fixed nav is never hidden */
 div[data-testid="stElementContainer"]:has(#ds-nav) {
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
+  display: block !important;
   height: 0 !important;
   min-height: 0 !important;
-  max-height: 0 !important;
   margin: 0 !important;
   padding: 0 !important;
   overflow: visible !important;
-  border: none !important;
-  pointer-events: none !important;
-}
-
-div[data-testid="stElementContainer"]:has(#ds-nav) * {
-  pointer-events: auto !important;
-}
-
-div[data-testid="stElementContainer"]:has(#ds-nav) [data-testid="stMarkdownContainer"],
-div[data-testid="stElementContainer"]:has(#ds-nav) [data-testid="stMarkdownContainer"] > p,
-div[data-testid="stElementContainer"]:has(#ds-nav) [data-testid="stMarkdownContainer"] > div {
-  margin: 0 !important;
-  padding: 0 !important;
-  height: 0 !important;
-  min-height: 0 !important;
+  position: relative !important;
+  z-index: 9999999 !important;
 }
 
 .main .block-container,
 [data-testid="stMainBlockContainer"] {
   padding-top: var(--nav-h) !important;
   padding-bottom: 0 !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin-top: 0 !important;
   max-width: 100% !important;
 }
 
@@ -308,15 +286,15 @@ def top_navbar(active="dashboard", city_name="", temp=""):
 <style>
 /* ── Nav shell ─────────────────────────────────────────────────────────── */
 #ds-nav {{
-  position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+  position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; z-index: 9999999 !important;
   height: var(--nav-h);
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 28px;
-  background: rgba(5,5,5,.88);
+  background: rgba(5,5,5,.96);
   backdrop-filter: blur(28px) saturate(200%);
   -webkit-backdrop-filter: blur(28px) saturate(200%);
   border-bottom: 1px solid var(--border);
-  box-shadow: 0 1px 0 rgba(255,213,74,.05), 0 8px 40px rgba(0,0,0,.5);
+  box-shadow: 0 1px 0 rgba(255,213,74,.05), 0 8px 40px rgba(0,0,0,.8);
   transition: height .25s, background .25s;
 }}
 #ds-nav.scrolled {{
