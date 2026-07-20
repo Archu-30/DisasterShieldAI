@@ -98,13 +98,41 @@ st.markdown('<div class="chat-container">', unsafe_allow_html=True)
 # ── Hero (only when no messages) ──────────────────────────────────────────────
 if not st.session_state.messages:
     st.markdown("""
-<div style="text-align:center;padding:36px 16px 20px">
-  <div style="width:64px;height:64px;border-radius:20px;
-    background:linear-gradient(135deg,#FFD54A,#D4AF37);
+<div style="text-align:center;padding:12px 16px 16px">
+  <div style="width:68px;height:68px;border-radius:20px;
+    background:linear-gradient(145deg, #14161C 0%, #0B0D10 100%);
+    border:1px solid rgba(255,213,74,.4);
     display:flex;align-items:center;justify-content:center;
-    font-size:32px;margin:0 auto 18px;
-    box-shadow:0 0 40px rgba(255,213,74,.35)">🛡</div>
-  <div style="font-size:28px;font-weight:900;letter-spacing:-.04em;color:#F5F5F5;margin-bottom:8px">
+    margin:0 auto 16px;
+    box-shadow:0 0 36px rgba(255,213,74,.3), inset 0 1px 0 rgba(255,213,74,.15)">
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:44px;height:44px;">
+      <defs>
+        <linearGradient id="hero-gold" x1="8" y1="4" x2="40" y2="44" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#FFD54A"/><stop offset="1" stop-color="#D4AF37"/>
+        </linearGradient>
+      </defs>
+      <path d="M8 12 L4 9" stroke="url(#hero-gold)" stroke-width="1.2" stroke-linecap="round" opacity=".7"/>
+      <circle cx="3.2" cy="8.4" r="1.4" fill="#FFD54A"/>
+      <path d="M40 12 L44 9" stroke="url(#hero-gold)" stroke-width="1.2" stroke-linecap="round" opacity=".7"/>
+      <circle cx="44.8" cy="8.4" r="1.4" fill="#FFD54A"/>
+      <path d="M6 26 L2 26" stroke="url(#hero-gold)" stroke-width="1.2" stroke-linecap="round" opacity=".5"/>
+      <circle cx="1.8" cy="26" r="1.2" fill="#D4AF37"/>
+      <path d="M42 26 L46 26" stroke="url(#hero-gold)" stroke-width="1.2" stroke-linecap="round" opacity=".5"/>
+      <circle cx="46.2" cy="26" r="1.2" fill="#D4AF37"/>
+      <path d="M24 45 L24 47" stroke="url(#hero-gold)" stroke-width="1.2" stroke-linecap="round" opacity=".6"/>
+      <path d="M24 3.5 L7.5 10.2 V22 C7.5 33.3 14.6 42 24 45 C33.4 42 40.5 33.3 40.5 22 V10.2 Z"
+            fill="rgba(255,213,74,.08)" stroke="url(#hero-gold)" stroke-width="2.2" stroke-linejoin="round"/>
+      <circle cx="24" cy="19.5" r="8.6" stroke="url(#hero-gold)" stroke-width="1.3"/>
+      <ellipse cx="24" cy="19.5" rx="3.8" ry="8.6" stroke="url(#hero-gold)" stroke-width="1" opacity=".8"/>
+      <path d="M16.4 16.4 H31.6 M16.4 22.6 H31.6" stroke="url(#hero-gold)" stroke-width="1" opacity=".8"/>
+      <path d="M24 13.6 c-2.6 0 -4.6 2 -4.6 4.5 c0 3.3 4.6 8 4.6 8 s4.6 -4.7 4.6 -8 c0 -2.5 -2 -4.5 -4.6 -4.5 Z"
+            fill="#FF4D4F" stroke="#0B0D10" stroke-width="1"/>
+      <circle cx="24" cy="18" r="1.7" fill="#0B0D10"/>
+      <polyline points="12.5,35 18,35 20.2,31.2 23.2,38.8 25.6,33.2 27.4,35 35.5,35"
+                stroke="#00E676" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+  <div style="font-size:28px;font-weight:900;letter-spacing:-.04em;color:#F5F5F5;margin-bottom:6px">
     DisasterShield AI
   </div>
   <div style="font-size:14px;color:#8B949E;max-width:420px;margin:0 auto;line-height:1.6">
