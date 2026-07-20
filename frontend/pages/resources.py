@@ -21,7 +21,7 @@ shelters  = _shelters(lat, lon) if loc["available"] else []
 hospitals = _hospitals(lat, lon) if loc["available"] else []
 
 st.markdown("""
-<div style="padding:16px 24px 16px">
+<div style="padding:16px 24px 12px">
   <div style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
     color:var(--gold);margin-bottom:10px">📍 NEARBY RESOURCES</div>
   <div style="font-size:30px;font-weight:900;letter-spacing:-.04em;color:var(--white);

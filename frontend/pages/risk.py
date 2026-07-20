@@ -35,7 +35,7 @@ risk_sc  = top_risk["risk_score"] if top_risk else 0
 risk_col = rc.get(risk_lvl,"#00C853")
 
 st.markdown(f"""
-<div style="padding:16px 24px 16px;font-family:var(--font)">
+<div style="padding:16px 24px 12px;font-family:var(--font)">
   <div style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
     color:var(--gold);margin-bottom:8px">📊 Risk Intelligence Center</div>
   <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px">

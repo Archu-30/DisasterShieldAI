@@ -168,12 +168,19 @@ a, a:hover, a:visited, a:active, [data-testid="stMarkdownContainer"] a {
 div[data-testid="stElementContainer"]:has([data-testid="stPageLink"]) { display: none !important; }
 div[data-testid="stElementContainer"]:has(iframe[height="0"]) { display: none !important; }
 div[data-testid="stElementContainer"]:has(> div > [data-testid="stMarkdownContainer"] > style:only-child) { display: none !important; }
+div[data-testid="stElementContainer"]:has(#ds-nav) {
+  height: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
 
-/* Zero-height elements (style-only markdown, the fixed navbar block) still
-   each reserve a flex-gap slot in the top-level vertical block — remove it.
-   Nested blocks (columns etc.) keep the default gap. */
+[data-testid="stMainBlockContainer"] {
+  padding-top: var(--nav-h) !important;
+}
+
 [data-testid="stMainBlockContainer"] > [data-testid="stVerticalBlock"] {
-  gap: 1rem !important;
+  gap: 0 !important;
 }
 
 /* ── Custom Metric & Resource Card hover styles ── */

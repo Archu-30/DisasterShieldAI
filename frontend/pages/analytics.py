@@ -25,7 +25,19 @@ temp    = weather.get("temperature_c", "--")
 top_navbar("analytics", f"{city}", str(temp))
 
 # Header Banner
-st.markdown(f'<div style="padding:16px 24px 12px"><div style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">📈 ANALYTICS & INTELLIGENCE</div><div style="font-size:28px;font-weight:900;letter-spacing:-.04em;color:var(--white);margin-bottom:4px">Disaster Intelligence Analytics</div><div style="font-size:13px;color:var(--gray)">Historical patterns, trend analysis, and predictive modeling for {city}</div></div>', unsafe_allow_html=True)
+st.markdown(f"""
+<div style="padding:16px 24px 12px">
+  <div style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">
+    📈 ANALYTICS & INTELLIGENCE
+  </div>
+  <div style="font-size:28px;font-weight:900;letter-spacing:-.04em;color:var(--white);margin-bottom:4px">
+    Disaster Intelligence Analytics
+  </div>
+  <div style="font-size:13px;color:var(--gray)">
+    Historical patterns, trend analysis, and predictive modeling for {city}
+  </div>
+</div>
+""", unsafe_allow_html=True)
 
 risk_score = preds[0]["risk_score"] if preds else 0
 

@@ -27,7 +27,7 @@ components.html("""<!DOCTYPE html><html><head><meta charset="utf-8">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',system-ui,sans-serif}
-body{background:#050505;padding:12px 24px 16px}
+body{background:#050505;padding:24px 24px 20px}
 .top{text-align:center;margin-bottom:24px}
 .eye{display:inline-flex;align-items:center;gap:7px;padding:5px 12px;
   background:rgba(255,77,79,.08);border:1px solid rgba(255,77,79,.2);
