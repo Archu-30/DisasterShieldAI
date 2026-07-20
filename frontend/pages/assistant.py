@@ -1,4 +1,4 @@
-﻿"""AI Assistant — DisasterShield AI · ChatGPT-style"""
+"""AI Assistant — DisasterShield AI · ChatGPT-style"""
 import streamlit as st
 import streamlit.components.v1 as components
 from backend.graph.workflow import get_response
@@ -9,7 +9,7 @@ from backend.services.weather_service import get_weather
 
 inject("""
 .chat-page{max-width:820px;margin:0 auto;padding-bottom:140px}
-.chat-hero{text-align:center;padding:44px 24px 28px}
+.chat-hero{text-align:center;padding:16px 24px 20px}
 .suggestions{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;
   max-width:640px;margin:0 auto 28px;padding:0 24px}
 .sug-card{

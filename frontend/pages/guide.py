@@ -1,9 +1,9 @@
-﻿"""Offline Guide — DisasterShield AI"""
+"""Offline Guide — DisasterShield AI"""
 import streamlit as st
 from frontend.design.premium_css import inject, top_navbar
 
 inject("""
-.guide-wrap { max-width: 760px; margin: 0 auto; padding: 36px 24px 60px; }
+.guide-wrap { max-width: 760px; margin: 0 auto; padding: 16px 24px 60px; }
 .step { display: flex; gap: 13px; align-items: flex-start; padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,.04); }
 .step:last-child { border-bottom: none; }
 .step-num { width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0; background: linear-gradient(135deg,#FFD54A,#D4AF37); color: #050505; font-size: 11.5px; font-weight: 800; display: flex; align-items: center; justify-content: center; margin-top: 1px; }

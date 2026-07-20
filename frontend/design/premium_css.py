@@ -175,6 +175,11 @@ div[data-testid="stElementContainer"]:has(> div > [data-testid="stMarkdownContai
 [data-testid="stMainBlockContainer"] > [data-testid="stVerticalBlock"] {
   gap: 1rem !important;
 }
+[data-testid="stMainBlockContainer"] > [data-testid="stVerticalBlock"] > div:first-child,
+[data-testid="stMainBlockContainer"] > [data-testid="stVerticalBlock"] > div:nth-child(2),
+[data-testid="stMainBlockContainer"] > [data-testid="stVerticalBlock"] > div:nth-child(3) {
+  margin-top: 0 !important;
+}
 
 /* ── Custom Metric & Resource Card hover styles ── */
 .ds-metric-card {

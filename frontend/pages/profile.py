@@ -1,11 +1,11 @@
-﻿"""My Profile — DisasterShield AI"""
+"""My Profile — DisasterShield AI"""
 import streamlit as st
 from frontend.design.premium_css import inject, top_navbar
 from backend.services.location_service import get_location
 from backend.services.weather_service import get_weather
 
 inject("""
-.profile-wrap{max-width:820px;margin:0 auto;padding:36px 24px 60px}
+.profile-wrap{max-width:820px;margin:0 auto;padding:16px 24px 60px}
 .p-hero{display:flex;align-items:center;gap:22px;padding:28px;margin-bottom:16px;
   background:var(--glass);border:1px solid var(--border2);border-radius:var(--r-lg);
   position:relative;overflow:hidden}

@@ -1,4 +1,4 @@
-﻿"""Settings — DisasterShield AI"""
+"""Settings — DisasterShield AI"""
 import json
 import streamlit as st
 from frontend.design.premium_css import inject, top_navbar
@@ -6,7 +6,7 @@ from backend.services import push_service
 from backend.services.location_service import get_location
 
 inject("""
-.settings-wrap { max-width: 760px; margin: 0 auto; padding: 36px 24px 60px; }
+.settings-wrap { max-width: 760px; margin: 0 auto; padding: 16px 24px 60px; }
 .s-head { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 18px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--border2); padding-bottom: 8px; }
 .s-label { font-size: 13.5px; font-weight: 600; color: var(--white); }
 .s-sub { font-size: 11.5px; color: var(--gray); margin-top: 2px; }
