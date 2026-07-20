@@ -1,11 +1,23 @@
 import os
+import streamlit as st
 from dotenv import load_dotenv
 
 load_dotenv()
 
+
+def _get_secret(key: str, default: str = "") -> str:
+    val = os.getenv(key)
+    if not val:
+        try:
+            val = st.secrets.get(key, default)
+        except Exception:
+            val = default
+    return val or default
+
+
 # ── API Keys ──────────────────────────────────────────────────────────────────
-GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
-OPENWEATHER_API_KEY = os.getenv("OPENWEATHER_API_KEY", "")
+GROQ_API_KEY = _get_secret("GROQ_API_KEY", "")
+OPENWEATHER_API_KEY = _get_secret("OPENWEATHER_API_KEY", "")
 
 # ── Weather ───────────────────────────────────────────────────────────────────
 WEATHER_BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
