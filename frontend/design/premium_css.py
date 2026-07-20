@@ -163,20 +163,31 @@ a, a:hover, a:visited, a:active, [data-testid="stMarkdownContainer"] a {
 /* ── Page top padding (below fixed nav) ──────────────────────────────────── */
 .page-body { padding-top: calc(var(--nav-h) + 4px); }
 
-/* ── Collapse invisible layout elements (hidden page links, 0-height JS
-     iframes) so they don't leave a big empty gap under the fixed navbar ── */
-div[data-testid="stElementContainer"]:has([data-testid="stPageLink"]) { display: none !important; }
-div[data-testid="stElementContainer"]:has(iframe[height="0"]) { display: none !important; }
-div[data-testid="stElementContainer"]:has(> div > [data-testid="stMarkdownContainer"] > style:only-child) { display: none !important; }
-div[data-testid="stElementContainer"]:has(#ds-nav) {
+/* ── Collapse invisible layout elements (hidden page links, style tags, nav wrappers)
+     so they generate ZERO flex gaps under the fixed navbar ── */
+div[data-testid="stElementContainer"]:has([data-testid="stPageLink"]),
+div[data-testid="stElementContainer"]:has(iframe[height="0"]),
+div[data-testid="stElementContainer"]:has(> div > [data-testid="stMarkdownContainer"] > style) {
+  display: none !important;
   height: 0 !important;
   min-height: 0 !important;
   margin: 0 !important;
   padding: 0 !important;
 }
 
+div[data-testid="stElementContainer"]:has(#ds-nav) {
+  height: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: visible !important;
+}
+
+.main .block-container,
 [data-testid="stMainBlockContainer"] {
   padding-top: var(--nav-h) !important;
+  padding-bottom: 0 !important;
+  max-width: 100% !important;
 }
 
 [data-testid="stMainBlockContainer"] > [data-testid="stVerticalBlock"] {
