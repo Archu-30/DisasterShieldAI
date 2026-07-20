@@ -1,4 +1,4 @@
-﻿"""Emergency SOS — DisasterShield AI"""
+"""Emergency SOS — DisasterShield AI"""
 import streamlit as st
 import streamlit.components.v1 as components
 from frontend.design.premium_css import inject, top_navbar, resource_card
@@ -27,28 +27,28 @@ components.html("""<!DOCTYPE html><html><head><meta charset="utf-8">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',system-ui,sans-serif}
-body{background:#050505;padding:40px 24px 32px}
-.top{text-align:center;margin-bottom:36px}
+body{background:#050505;padding:24px 24px 20px}
+.top{text-align:center;margin-bottom:24px}
 .eye{display:inline-flex;align-items:center;gap:7px;padding:5px 12px;
   background:rgba(255,77,79,.08);border:1px solid rgba(255,77,79,.2);
-  border-radius:99px;margin-bottom:16px;font-size:10.5px;font-weight:700;
+  border-radius:99px;margin-bottom:12px;font-size:10.5px;font-weight:700;
   letter-spacing:.1em;text-transform:uppercase;color:#FF4D4F}
 .eye-dot{width:6px;height:6px;border-radius:50%;background:#FF4D4F;
   animation:pulse 1.2s ease infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(1.5)}}
-h1{font-size:38px;font-weight:900;letter-spacing:-.04em;color:#F5F5F5;
-  line-height:1.05;margin-bottom:8px}
+h1{font-size:36px;font-weight:900;letter-spacing:-.04em;color:#F5F5F5;
+  line-height:1.05;margin-bottom:6px}
 h1 span{color:#FF4D4F}
-p{font-size:14px;color:#8B949E;max-width:400px;margin:0 auto;line-height:1.65}
+p{font-size:13.5px;color:#8B949E;max-width:400px;margin:0 auto;line-height:1.6}
 .sos-area{display:flex;align-items:center;justify-content:center;
-  gap:40px;margin-bottom:36px;flex-wrap:wrap}
-.sos-wrap{position:relative;width:160px;height:160px;cursor:pointer}
-.sos-ring{position:absolute;inset:-20px;border-radius:50%;
+  gap:40px;margin:24px 0;flex-wrap:wrap}
+.sos-wrap{position:relative;width:150px;height:150px;cursor:pointer}
+.sos-ring{position:absolute;inset:-18px;border-radius:50%;
   border:2px solid rgba(255,77,79,.2);animation:expand 2.5s ease-out infinite}
 .sos-ring:nth-child(2){animation-delay:.8s}
 @keyframes expand{0%{transform:scale(.85);opacity:.8}100%{transform:scale(1.4);opacity:0}}
 .sos-btn{
-  width:160px;height:160px;border-radius:50%;
+  width:150px;height:150px;border-radius:50%;
   background:radial-gradient(circle at 40% 35%,#FF6B6B,#FF4D4F 50%,#C0392B);
   box-shadow:0 0 60px rgba(255,77,79,.4),0 0 120px rgba(255,77,79,.12),
     inset 0 2px 0 rgba(255,255,255,.22),inset 0 -3px 6px rgba(0,0,0,.3);
@@ -57,25 +57,25 @@ p{font-size:14px;color:#8B949E;max-width:400px;margin:0 auto;line-height:1.65}
   transition:transform .12s,box-shadow .12s;
 }
 .sos-btn:active{transform:scale(.94)!important}
-.sos-ico{font-size:44px;margin-bottom:3px;line-height:1}
-.sos-lbl{font-size:16px;font-weight:900;color:#fff;letter-spacing:.1em}
-.sos-sub{font-size:10px;color:rgba(255,255,255,.65);margin-top:2px}
-.call-hint{font-size:12px;color:#8B949E;margin-bottom:32px;text-align:center}
+.sos-ico{font-size:40px;margin-bottom:2px;line-height:1}
+.sos-lbl{font-size:15px;font-weight:900;color:#fff;letter-spacing:.1em}
+.sos-sub{font-size:9.5px;color:rgba(255,255,255,.65);margin-top:2px}
+.call-hint{font-size:12px;color:#8B949E;margin-bottom:20px;text-align:center}
 .call-hint strong{color:#FF4D4F}
 .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:700px;margin:0 auto}
 .tile{
-  display:flex;flex-direction:column;align-items:center;gap:10px;
-  padding:18px 12px 16px;border-radius:16px;
-  border:1px solid;text-decoration:none;cursor:pointer;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  padding:14px 10px 14px;border-radius:14px;
+  border:1px solid;text-decoration:none !important;cursor:pointer;
   transition:all .18s;position:relative;overflow:hidden;
 }
 .tile::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;
   background:linear-gradient(90deg,transparent,currentColor,transparent);opacity:.3}
-.tile:hover{transform:translateY(-4px)}
-.tile-ico{font-size:32px;line-height:1}
-.tile-num{font-size:22px;font-weight:900;letter-spacing:-.03em}
-.tile-lbl{font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;
-  text-align:center;line-height:1.3;opacity:.8}
+.tile:hover{transform:translateY(-3px)}
+.tile-ico{font-size:28px;line-height:1}
+.tile-num{font-size:20px;font-weight:900;letter-spacing:-.03em}
+.tile-lbl{font-size:10.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+  text-align:center;line-height:1.2;opacity:.85}
 </style></head><body>
 <div class="top">
   <div class="eye"><div class="eye-dot"></div>Emergency Response Center</div>
@@ -144,7 +144,7 @@ p{font-size:14px;color:#8B949E;max-width:400px;margin:0 auto;line-height:1.65}
     <div class="tile-lbl">Disaster Relief</div>
   </a>
 </div>
-</body></html>""", height=560, scrolling=False)
+</body></html>""", height=580, scrolling=False)
 
 # ── Nearest Resources ──────────────────────────────────────────────────────────
 col1, col2 = st.columns(2, gap="small")

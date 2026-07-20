@@ -48,6 +48,13 @@ html, body, .stApp, [class*="css"] {
   text-rendering: optimizeLegibility;
 }
 
+a, a:hover, a:visited, a:active, [data-testid="stMarkdownContainer"] a {
+  text-decoration: none !important;
+}
+#ds-nav a, .nav-link, .nav-logo {
+  text-decoration: none !important;
+}
+
 /* ── Hide all Streamlit chrome ───────────────────────────────────────────── */
 #MainMenu, footer, header, .stDeployButton,
 [data-testid="stToolbar"], [data-testid="stDecoration"],
@@ -1604,6 +1611,7 @@ def section_header(title: str, subtitle: str = "", badge: str = ""):
 def resource_card(rank, name, dist_km, extra="", nav_url="#"):
     colors = ["#FFD54A", "#D4AF37", "#8B949E"]
     c = colors[min(rank - 1, 2)]
+    clean_name = str(name).replace("_", " ").title()
     st.markdown(f"""
 <div class="ds-res-card" style="background:var(--glass);border:1px solid var(--border2);border-radius:var(--r);
   padding:16px 18px;display:flex;align-items:center;gap:14px;
@@ -1613,12 +1621,13 @@ def resource_card(rank, name, dist_km, extra="", nav_url="#"):
     font-size:12px;font-weight:800;color:{c};flex-shrink:0">{rank}</div>
   <div style="flex:1;min-width:0">
     <div style="font-size:13.5px;font-weight:600;color:var(--white);
-      overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{name}</div>
+      overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{clean_name}</div>
     <div style="font-size:11px;color:var(--gray);margin-top:2px">
       📍 {dist_km} km away{f" · {extra}" if extra else ""}</div>
   </div>
   <a href="{nav_url}" target="_self" class="ds-res-card-nav-btn" style="flex-shrink:0;padding:7px 14px;
     background:var(--gold-lo);border:1px solid var(--border);border-radius:8px;
-    font-size:11px;font-weight:600;color:var(--gold);text-decoration:none;
+    font-size:11px;font-weight:600;color:var(--gold);text-decoration:none !important;
+    display:inline-flex;align-items:center;justify-content:center;
     white-space:nowrap">Navigate →</a>
 </div>""", unsafe_allow_html=True)
