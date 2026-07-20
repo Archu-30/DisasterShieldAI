@@ -173,13 +173,13 @@ h1 em{{font-style:normal;
       and emergency response coordination — all in one platform.
     </p>
     <div class="cta-row">
-      <a href="assistant" data-navigate="assistant" class="btn-primary">
+      <a href="assistant" target="_top" data-navigate="assistant" class="btn-primary">
         ⚡ Launch AI Assistant
       </a>
-      <a href="emergency" data-navigate="emergency" class="btn-danger">
+      <a href="emergency" target="_top" data-navigate="emergency" class="btn-danger">
         🆘 Emergency SOS
       </a>
-      <a href="risk" data-navigate="risk" class="btn-ghost">
+      <a href="risk" target="_top" data-navigate="risk" class="btn-ghost">
         📊 Risk Monitor
       </a>
     </div>
@@ -296,6 +296,19 @@ h1 em{{font-style:normal;
     requestAnimationFrame(draw);
   }}
   draw();
+
+  document.addEventListener('click', function(e) {{
+    var navLink = e.target.closest('[data-navigate]');
+    if (navLink) {{
+      e.preventDefault();
+      var slug = navLink.getAttribute('data-navigate');
+      if (window.parent && window.parent.dsNavigate) {{
+        window.parent.dsNavigate(slug);
+      }} else if (window.top) {{
+        window.top.location.href = (slug === '' || slug === './') ? '/' : '/' + slug;
+      }}
+    }}
+  }});
 }})();
 </script>
 </body></html>"""
