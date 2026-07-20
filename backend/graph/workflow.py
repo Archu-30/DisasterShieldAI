@@ -125,18 +125,29 @@ graph = workflow.compile()
 # -------------------------
 
 def get_response(user_query):
+    try:
+        detected_disaster = detector.detect_disaster(user_query)
 
-    detected_disaster = detector.detect_disaster(user_query)
+        result = graph.invoke(
+            {
+                "query": user_query,
+                "disaster": detected_disaster,
+                "response": ""
+            }
+        )
 
-    result = graph.invoke(
-        {
-            "query": user_query,
+        return {
             "disaster": detected_disaster,
-            "response": ""
+            "response": result["response"]
         }
-    )
-
-    return {
-        "disaster": detected_disaster,
-        "response": result["response"]
-    }
+    except Exception as e:
+        err_msg = str(e)
+        if "Authentication" in err_msg or "api_key" in err_msg or "401" in err_msg or "Groq" in err_msg:
+            return {
+                "disaster": "Error",
+                "response": "⚠️ **Groq API Key Authentication Error**: Your GROQ_API_KEY is invalid or missing.\n\nPlease check your key at [console.groq.com/keys](https://console.groq.com/keys) and update **Streamlit Cloud Settings → Secrets** (or `.env`)."
+            }
+        return {
+            "disaster": "Error",
+            "response": f"⚠️ An error occurred while processing your request: {err_msg}"
+        }

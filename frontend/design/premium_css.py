@@ -1372,14 +1372,6 @@ def top_navbar(active="dashboard", city_name="", temp=""):
     if (e.target && e.target.id==='ds-search-input') win.dsSearchRender(e.target.value);
   });
 
-  /* ── Hoist overlays to <body> so position:fixed works ── */
-  function hoistToBody() {
-    ['notif-panel','profile-menu','critical-overlay','ds-backdrop','ds-search-modal','ds-mobile-menu'].forEach(function(id){
-      var el = doc.getElementById(id);
-      if (el && el.parentNode !== doc.body) doc.body.appendChild(el);
-    });
-  }
-
   /* ── Force same-tab navigation everywhere (Streamlit markdown adds _blank) ── */
   function stripTargetBlank() {
     doc.querySelectorAll('a[target="_blank"]').forEach(function(a){
@@ -1400,7 +1392,6 @@ def top_navbar(active="dashboard", city_name="", temp=""):
     }
     seedNotifications();
     updateBadge();
-    hoistToBody();
     stripTargetBlank();
     var oldSpacer = doc.getElementById('ds-nav-spacer');
     if (oldSpacer) oldSpacer.remove();

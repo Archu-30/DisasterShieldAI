@@ -18,6 +18,9 @@ def get_llm():
         except Exception:
             pass
 
+    if api_key:
+        api_key = str(api_key).strip().strip('"').strip("'")
+
     if not api_key:
         raise ValueError(
             "GROQ_API_KEY is missing! Please configure GROQ_API_KEY in your Streamlit Cloud Secrets or .env file."
