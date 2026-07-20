@@ -194,7 +194,7 @@ div[data-testid="stElementContainer"]:has(#ds-nav) {
 
 .main .block-container,
 [data-testid="stMainBlockContainer"] {
-  padding-top: 42px !important;
+  padding-top: 26px !important;
   padding-bottom: 0 !important;
   padding-left: 0 !important;
   padding-right: 0 !important;
@@ -206,7 +206,8 @@ div[data-testid="stElementContainer"]:has(#ds-nav) {
 }
 
 [data-testid="stMainBlockContainer"] > [data-testid="stVerticalBlock"] > div[data-testid="stElementContainer"]:first-child,
-[data-testid="stMainBlockContainer"] > [data-testid="stVerticalBlock"] > div[data-testid="stElementContainer"]:nth-child(2) {
+[data-testid="stMainBlockContainer"] > [data-testid="stVerticalBlock"] > div[data-testid="stElementContainer"]:nth-child(2),
+[data-testid="stMainBlockContainer"] > [data-testid="stVerticalBlock"] > div[data-testid="stElementContainer"]:nth-child(3) {
   margin-top: 0 !important;
   padding-top: 0 !important;
 }
